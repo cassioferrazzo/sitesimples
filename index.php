@@ -26,8 +26,7 @@
         }else{
             require("home.php");    
         }
-        ?>            
-        <p>OBS: Todas as descrições foram copiadas da WIKIPEDIA.</p>
+        ?>                    
         <footer id="rodape">
             <p>&copy; Todos os direitos reservados - <?php echo date("Y"); ?></p>
         </footer>
