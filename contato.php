@@ -1,7 +1,7 @@
 <article>
-    <form method="post">
+    <form method="post" action="confirmacao_envio.php">
         <fieldset id="form_contato">
-            <legend>Entre em contato</legend>
+            <div class="jumbotron"><h1>Entre em contato</h1></div>            
             <div class="form-group">
                 <label for="nome" class="col-sm-1 control-label">Nome:</label>
                 <input type="text" name="nome" outofocus id="nome" class="input-xlarge" required>
@@ -15,8 +15,8 @@
                 <input type="text" name="assunto" id="assunto" class="input-xlarge" required>                    
             </div>
             <div class="form-group">   
-                <label for="mensagem" class="col-sm-1 control-label">Mensagem</label><p>                
-                    <textarea name="mensagem" id="mensagem" cols="45" rows="5" placeholder="Deixe a sua mensagem." required></textarea>  
+                <label for="mensagem" class="col-sm-1 control-label">Mensagem:</label>                
+                    <textarea name="mensagem" id="mensagem" cols="45" rows="5" required></textarea>  
             </div>
             <div class="form-group"> 
                 <div class="col-sm-offset-2 col-sm-5">
@@ -25,5 +25,6 @@
                 </div>
             </div>
         </fieldset>        
-    </form>    
+    </form>  
+    <br>
 </article>

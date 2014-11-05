@@ -1,6 +1,6 @@
 <article>
     <header>
-        <h1>Serviços</h1>
+        <div class="jumbotron"><h1>Serviços</h1></div>
     </header>
     <p>
         Um serviço é o equivalente intangível de um bem, não resulta na 

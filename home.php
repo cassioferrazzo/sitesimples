@@ -1,6 +1,6 @@
 <article>
     <header>
-        <h1>Home</h1>
+        <div class="jumbotron"><h1>Home</h1></div>
     </header>
     <p>
         Home é um documentário lançado em 2009, produzido pelo jornalista, 

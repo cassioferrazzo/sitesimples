@@ -1,6 +1,6 @@
 <article>
     <header>
-        <h1>Empresa</h1>
+        <div class="jumbotron"><h1>Empresa</h1></div>
     </header>
     <p>
         No Direito Empresarial, atividade empresarial, ou empresa, é uma 
