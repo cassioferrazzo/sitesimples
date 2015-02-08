@@ -3,11 +3,6 @@
         <div class="jumbotron"><h1>Produtos</h1></div>
     </header>
     <p>
-        No Direito Empresarial, atividade empresarial, ou empresa, é uma 
-        atividade econômica exercida profissionalmente pelo empresário por meio 
-        da articulação dos fatores produtivos para a produção ou circulação de 
-        bens ou de serviços. O conceito jurídico de empresa não pode ser 
-        entendido como um sujeito de direito, uma pessoa jurídica, tampouco o 
-        local onde se desenvolve a atividade econômica.        
+        De forma geral, um produto é uma espécie de compilação de diversos fatores   
     </p>   
 </article>
