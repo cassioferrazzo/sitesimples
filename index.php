@@ -40,59 +40,10 @@
         }
 
         function carregarPagina($arquivo) {
-            echo getMenu();
-            echo '<div class="container">';
-            require($arquivo);
-            echo '</div>';
-            die(getRodape());
-        }
-
-        function getMenu() {
-            $menuStr = '<header>
-                            <nav class="navbar navbar-default navbar-fixed-top">
-                                <div class="container">
-                                    <div class=" navbar-header page-scroll">
-                                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                                            <span class="sr-only">Toggle navigation</span>
-                                            <span class="icon-bar"></span>
-                                            <span class="icon-bar"></span>
-                                            <span class="icon-bar"></span>
-                                            <span class="icon-bar"></span>
-                                            <span class="icon-bar"></span>                        
-                                        </button>
-                                        <a class="navbar-brand" href="home">Site Simples</a>
-                                    </div> 
-                                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                                        <ul class="nav navbar-nav navbar-right">
-                                            <li class="page-scroll">                                
-                                                <a href="home">Home</a>
-                                            </li>
-                                            <li class="page-scroll">
-                                                <a href="empresa">Empresa</a>
-                                            </li>
-                                            <li class="page-scroll">
-                                                <a href="produtos">Produtos</a>
-                                            </li>
-                                            <li class="page-scroll">
-                                                <a href="servicos">Serviços</a>
-                                            </li>
-                                            <li class="page-scroll">
-                                                <a href="contato">Contato</a>
-                                            </li>                
-                                        </ul>
-                                    </div>
-                                </div>
-                            </nav>
-                        </header>';
-            return $menuStr;
-        }
-
-        function getRodape() {
-            $footerStr = '<footer>
-                            <p>&copy; Todos os direitos reservados - <?php echo date("Y"); ?></p>
-                          </footer>';
-
-            return $footerStr;
+            require('template/menu.php');
+            require($arquivo);           
+            require('template/footer.php');
+            die();
         }
         ?>     
     </body>

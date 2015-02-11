@@ -21,7 +21,7 @@
             <p>Mensagem: <?php echo$_POST['mensagem']; ?></p>                       
             <div class="form-group"> 
                 <div class="col-sm-offset-2 col-sm-5">
-                    <a href="index.php">VOLTAR</a>
+                    <a href="home">VOLTAR</a>
                 </div>
             </div>
         </div>  
