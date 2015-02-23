@@ -12,8 +12,6 @@
 
         <!-- PERSONALIZADO -->        
         <link href="css/padrao.css" rel="stylesheet" type="text/css"/>
-
-
     </head>
     <body>                       
         <?php
@@ -23,27 +21,45 @@
         rotear($_SERVER["REQUEST_URI"]);
 
         function rotear($uri) {
-            $peginaRequisitada = substr($uri, 1);
-            $rotas['home'] = 'home.php';
-            $rotas['contato'] = 'contato.php';
-            $rotas['produtos'] = 'produtos.php';
-            $rotas['servicos'] = 'servicos.php';
-            $rotas['empresa'] = 'empresa.php';
-            
-            if (!$peginaRequisitada) {
-                carregarPagina('home.php');
+
+            $paginaRequisitada = (substr($uri, 1)) ? substr($uri, 1) : "home";
+            $conn = include 'dataAcess.php';
+            $statement = $conn->prepare("SELECT "
+                    . "rou.tittle, cont.content "
+                    . "FROM tb_route AS rou "
+                    . "JOIN tb_content AS cont "
+                    . "ON rou.content = cont.id_content "
+                    . "WHERE rou.request = :request");
+            $statement->bindParam(':request', $paginaRequisitada, PDO::PARAM_STR);
+            $statement->execute();
+            $context = $statement->fetch();
+            if (!isset($context)) {
+                $context = array(
+                    'tittle' => 'ERRO - 404',
+                    'content' => 'Desculpe mas houve algum problema, não conseguimos carregar a página solicitada.');
+                carregarPagina($context);
+                http_response_code(404);
+                die();
             }
-            if (array_key_exists($peginaRequisitada, $rotas)) {
-                carregarPagina($rotas[$peginaRequisitada]);
-            }
-            carregarPagina('404.php');
+            carregarPagina($context);
         }
 
-        function carregarPagina($arquivo) {
+        function carregarPagina($arrayContext) {
+            $tittle = $arrayContext['tittle'];
+            $content = $arrayContext['content'];
             require('template/menu.php');
-            require($arquivo);           
+            echo ("<div class='container'>
+                        <article>
+                            <header>
+                                 <div class='jumbotron'><h1>$tittle</h1></div>
+                            </header>
+                            <p>");
+            echo $content;
+            echo ("
+                            </p>   
+                        </article>  
+                   </div>");
             require('template/footer.php');
-            die();
         }
         ?>     
     </body>
