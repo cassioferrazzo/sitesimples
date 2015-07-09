@@ -25,40 +25,21 @@
             $paginaRequisitada = (substr($uri, 1)) ? substr($uri, 1) : "home";
             $conn = include 'dataAcess.php';
             $statement = $conn->prepare("SELECT "
-                    . "rou.tittle, cont.content "
+                    . "rou.redirect "
                     . "FROM tb_route AS rou "
-                    . "JOIN tb_content AS cont "
-                    . "ON rou.content = cont.id_content "
                     . "WHERE rou.request = :request");
             $statement->bindParam(':request', $paginaRequisitada, PDO::PARAM_STR);
             $statement->execute();
             $context = $statement->fetch();
-            if (!isset($context)) {
-                $context = array(
-                    'tittle' => 'ERRO - 404',
-                    'content' => 'Desculpe mas houve algum problema, não conseguimos carregar a página solicitada.');
-                carregarPagina($context);
-                http_response_code(404);
-                die();
+            if (!$context) {
+                carregarPagina('404.php');
             }
-            carregarPagina($context);
+            carregarPagina($context['redirect']);
         }
 
-        function carregarPagina($arrayContext) {
-            $tittle = $arrayContext['tittle'];
-            $content = $arrayContext['content'];
+        function carregarPagina($redirect) {
             require('template/menu.php');
-            echo ("<div class='container'>
-                        <article>
-                            <header>
-                                 <div class='jumbotron'><h1>$tittle</h1></div>
-                            </header>
-                            <p>");
-            echo $content;
-            echo ("
-                            </p>   
-                        </article>  
-                   </div>");
+            include $redirect;
             require('template/footer.php');
         }
         ?>     

@@ -4,7 +4,7 @@ return array(
         'dbname' => 'sitesimples',
         'host' => 'localhost',
         'user' => 'root',
-        'pass' => ''
+        'pass' => 'root'
     )
 );
 
