@@ -3,8 +3,11 @@
         <header>
             <div class='jumbotron'><h1>Produtos</h1></div>
         </header>
-        <p>De forma geral, um produto é uma espécie de compilação de diversos fatores
-
+        <p> 
+            <?php
+            require_once'functions.php';
+            echo getContent(substr($_SERVER["REQUEST_URI"], 1));
+            ?>
         </p>   
     </article>  
 </div>

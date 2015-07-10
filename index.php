@@ -15,15 +15,13 @@
     </head>
     <body>                       
         <?php
-        date_default_timezone_set('America/Sao_Paulo');
-        ini_set('display_errors', true);
-        error_reporting(E_ALL | E_STRICT);
+        require_once 'functions.php';
         rotear($_SERVER["REQUEST_URI"]);
 
         function rotear($uri) {
 
             $paginaRequisitada = (substr($uri, 1)) ? substr($uri, 1) : "home";
-            $conn = include 'dataAcess.php';
+            $conn =  getConnection();
             $statement = $conn->prepare("SELECT "
                     . "rou.redirect "
                     . "FROM tb_route AS rou "

@@ -16,7 +16,7 @@ function initializeFixture() {
 
         $conn = new PDO("mysql:host={$host}", $user, $pass);
         $conn->exec("DROP DATABASE IF EXISTS $dbname");
-        $conn->exec("CREATE DATABASE $dbname");
+        $conn->exec("CREATE DATABASE $dbname CHARSET Latin1 COLLATE latin1_swedish_ci;");
         $conn->exec("USE $dbname"); 
         return $conn;
     } catch (Exception $ex) {

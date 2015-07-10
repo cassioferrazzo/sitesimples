@@ -12,6 +12,14 @@
                 </button>
                 <a class="navbar-brand" href="home">Site Simples</a>
             </div> 
+            <form class="navbar-form navbar-right"  method="post" action="buscar.php">
+                <div class="form-group">
+                    <input type="text" class="form-control" name="buscar" id="buscar" placeholder="Buscar" required>
+                </div>
+                <button type="submit" class="btn btn-default">
+                    <span class="glyphicon glyphicon-search" aria-hidden="true"></span>                    
+                </button>
+            </form>
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
                     <li class="page-scroll">                                
