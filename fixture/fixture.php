@@ -10,7 +10,7 @@ try {
             . "redirect VARCHAR(20) NOT NULL,"
             . "PRIMARY KEY(request)"
             . ");");
-    
+
     $conn->exec("CREATE TABLE tb_content("
             . "id_content INT NOT NULL AUTO_INCREMENT,"
             . "content LONGTEXT,"
@@ -18,17 +18,26 @@ try {
             . "FOREIGN KEY (request) REFERENCES tb_route(request),"
             . "PRIMARY KEY(id_content)"
             . ");");
-    
+
+    $conn->exec("CREATE TABLE tb_login("
+            . "id_login INT NOT NULL AUTO_INCREMENT,"
+            . "usuario VARCHAR(20) NOT NULL,"
+            . "senha VARCHAR(100) NOT NULL,"
+            . "PRIMARY KEY(id_login)"
+            . ");");
 
     echo "-------- INSERIRNDO DADOS --------\n";
+
+    $conn->exec("INSERT INTO tb_login (usuario, senha) VALUES ('admin', '".md5('admin')."')");
     
     $conn->exec("INSERT INTO tb_route VALUES ('home','home.php');");
-    $conn->exec("INSERT INTO tb_route VALUES ('empresa','empresa.php');");    
-    $conn->exec("INSERT INTO tb_route VALUES ('servicos','servicos.php');");    
+    $conn->exec("INSERT INTO tb_route VALUES ('empresa','empresa.php');");
+    $conn->exec("INSERT INTO tb_route VALUES ('servicos','servicos.php');");
     $conn->exec("INSERT INTO tb_route VALUES ('produtos','produtos.php');");
     $conn->exec("INSERT INTO tb_route VALUES ('contato','contato.php');");
-   
-$conn->exec("INSERT INTO tb_content VALUES (
+    $conn->exec("INSERT INTO tb_route VALUES ('entrar','login.php');");
+
+    $conn->exec("INSERT INTO tb_content VALUES (
     1,'Home é um documentário lançado em 2009, produzido pelo jornalista, 
     fotógrafo e ambientalista francês Yann Arthus-Bertrand. O filme é 
     inteiramente composto de imagens aéreas de vários lugares da Terra. 
@@ -41,8 +50,8 @@ $conn->exec("INSERT INTO tb_content VALUES (
     especializada em artigos de luxo. É totalmente gratuito e sem lucros 
     comerciais.
     Em Portugal, a estreia deste documentário foi feita através do canal 
-    RTP 2, pelas 20 horas','home');");    
-    
+    RTP 2, pelas 20 horas','home');");
+
     $conn->exec("INSERT INTO tb_content VALUES (
     2,
     'No Direito Empresarial, atividade empresarial, ou empresa, é uma 
@@ -50,8 +59,8 @@ $conn->exec("INSERT INTO tb_content VALUES (
     da articulação dos fatores produtivos para a produção ou circulação de 
     bens ou de serviços. O conceito jurídico de empresa não pode ser 
     entendido como um sujeito de direito, uma pessoa jurídica, tampouco o 
-    local onde se desenvolve a atividade econômica.','empresa');");   
-    
+    local onde se desenvolve a atividade econômica.','empresa');");
+
     $conn->exec("INSERT INTO tb_content VALUES (
     3,
     'Um serviço é o equivalente intangível de um bem, não resulta na 
@@ -83,13 +92,12 @@ $conn->exec("INSERT INTO tb_content VALUES (
     A busca e cobrança constante dos clientes por bons serviços, obriga a 
     um entendimento e aperfeiçoamento maior de marketing e relacionamento. 
     A formação de bons prestadores de serviço vem se tornando um grande 
-    desafio e extraordinário nicho de mercado.','servicos');");    
-    
-    
+    desafio e extraordinário nicho de mercado.','servicos');");
+
+
     $conn->exec("INSERT INTO tb_content VALUES (
     4,
-    'De forma geral, um produto é uma espécie de compilação de diversos fatores','produtos');");    
-    
+    'De forma geral, um produto é uma espécie de compilação de diversos fatores','produtos');");
 } catch (Exception $ex) {
     echo "Excessão: $ex->getMessage()\n";
     echo "Excessão: $ex->getTraceAsString()\n";

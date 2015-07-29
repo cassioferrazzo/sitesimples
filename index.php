@@ -12,6 +12,7 @@
 
         <!-- PERSONALIZADO -->        
         <link href="css/padrao.css" rel="stylesheet" type="text/css"/>
+        <link href="css/login.css" rel="stylesheet" type="text/css"/>
     </head>
     <body>                       
         <?php
