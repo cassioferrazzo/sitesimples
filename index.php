@@ -13,16 +13,18 @@
         <!-- PERSONALIZADO -->        
         <link href="css/padrao.css" rel="stylesheet" type="text/css"/>
         <link href="css/login.css" rel="stylesheet" type="text/css"/>
+        <script src="ckeditor/ckeditor.js"></script>
     </head>
     <body>                       
         <?php
+        session_start();
         require_once 'functions.php';
         rotear($_SERVER["REQUEST_URI"]);
 
         function rotear($uri) {
 
             $paginaRequisitada = (substr($uri, 1)) ? substr($uri, 1) : "home";
-            $conn =  getConnection();
+            $conn = getConnection();
             $statement = $conn->prepare("SELECT "
                     . "rou.redirect "
                     . "FROM tb_route AS rou "
@@ -37,7 +39,7 @@
         }
 
         function carregarPagina($redirect) {
-            require('template/menu.php');
+            require('template/menu.php');                       
             include $redirect;
             require('template/footer.php');
         }

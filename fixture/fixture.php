@@ -36,6 +36,7 @@ try {
     $conn->exec("INSERT INTO tb_route VALUES ('produtos','produtos.php');");
     $conn->exec("INSERT INTO tb_route VALUES ('contato','contato.php');");
     $conn->exec("INSERT INTO tb_route VALUES ('entrar','login.php');");
+    $conn->exec("INSERT INTO tb_route VALUES ('sair','logout.php');");
 
     $conn->exec("INSERT INTO tb_content VALUES (
     1,'Home é um documentário lançado em 2009, produzido pelo jornalista, 

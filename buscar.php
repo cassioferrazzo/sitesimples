@@ -14,7 +14,9 @@
         <link href="css/padrao.css" rel="stylesheet" type="text/css"/>
     </head>
     <body>
-        <?php require('template/menu.php'); ?>
+        <?php
+        require('template/menu.php');
+        ?>
         <div class="container">    
             <article>
                 <header>
@@ -35,10 +37,9 @@
                     $context = $statement->fetchAll();
 
                     if (isset($context)) {
-                         
-                        foreach ($context as $request)
-                        {
-                            echo "<a href=".$request['request'].">".$request['request']."</a><br>";                 
+
+                        foreach ($context as $request) {
+                            echo "<a href=" . $request['request'] . ">" . $request['request'] . "</a><br>";
                         }
                     }
                     echo'Nenhum resultado.';

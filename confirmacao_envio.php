@@ -15,7 +15,9 @@
         <link href="css/padrao.css" rel="stylesheet" type="text/css"/>
     </head>
     <body>
-        <?php require_once('template/menu.php'); ?>
+        <?php
+        require_once('template/menu.php');
+        ?>
         <div class="container">             
             <h3>Dados enviados com sucesso.</h3> 
             <p>Abaixo seguem os dados que você enviou:</p>
@@ -24,6 +26,6 @@
             <p>Assunto: <?php echo$_POST['assunto']; ?></p>
             <p>Mensagem: <?php echo$_POST['mensagem']; ?></p>                       
         </div> 
-        <?php require_once('template/footer.php'); ?>        
+<?php require_once('template/footer.php'); ?>        
     </body>
 </html>
