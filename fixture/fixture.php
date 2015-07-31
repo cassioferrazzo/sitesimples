@@ -28,7 +28,7 @@ try {
 
     echo "-------- INSERIRNDO DADOS --------\n";
 
-    $conn->exec("INSERT INTO tb_login (usuario, senha) VALUES ('admin', '".md5('admin')."')");
+    $conn->exec("INSERT INTO tb_login (usuario, senha) VALUES ('admin', '".password_hash('admin', PASSWORD_DEFAULT)."')");
     
     $conn->exec("INSERT INTO tb_route VALUES ('home','home.php');");
     $conn->exec("INSERT INTO tb_route VALUES ('empresa','empresa.php');");
