@@ -38,11 +38,13 @@
 
                     if (isset($context)) {
 
-                        foreach ($context as $request) {
-                            echo "<a href=" . $request['request'] . ">" . $request['request'] . "</a><br>";
+                        foreach ($context as $request)
+                        {
+                            echo "<a href=".$request['request'].">".$request['request']."</a><br>";                 
                         }
+                    }else{
+                        echo'Nenhum resultado.';
                     }
-                    echo'Nenhum resultado.';
                     ?>
                 </p>   
             </article>                                   
